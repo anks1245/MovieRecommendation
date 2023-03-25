@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Recommendation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table{
+            border: 1px solid black;
+            padding: 1px;
+            margin: 10px auto;
+        }
+        th, td{
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+            margin: 1px;
+        }
+        th{
+            font-weight: bold;
+        }
+        img{
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>sl no.</th>
+                <td>Poster</td>
+                <th>Title</th>
+                <th>Overview</th>
+                <th>IMDB Rating</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for index,row in movies.iterrows() %}
+                <tr>
+                    <td>{{ index }}</td>
+                    <td><img src="{{row.Poster_Link}}" alt=""></td>
+                    <td><a href="/movie/{{row.Series_Title}}" target="_blank">{{ row.Series_Title}}</a></td>
+                    <td>{{ row.Overview }}</td>
+                    <td>{{ row.IMDB_Rating }} ⭐️</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+<script>
+    // let jsonp = JSON.parse(listOfMovies)
+    // console.log(jsonp)
+</script>
+</html>
