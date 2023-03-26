@@ -39,7 +39,7 @@
         <tbody>
             {% for index,row in movies.iterrows() %}
                 <tr>
-                    <td>{{ index }}</td>
+                    <td>{{ index+1 }}</td>
                     <td><img src="{{row.Poster_Link}}" alt=""></td>
                     <td><a href="/movie/{{row.Series_Title}}" target="_blank">{{ row.Series_Title}}</a></td>
                     <td>{{ row.Overview }}</td>

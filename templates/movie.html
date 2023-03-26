@@ -24,9 +24,34 @@
             height: 100px;
             width: 100px;
         }
+        .container{
+            width: 500px;
+            margin: 10px auto;
+            display: flex;
+            justify-content: center;
+        }
+        .poster img{
+            height: 200px;
+            width: 200px;
+            margin: 10px;
+        }
     </style>
 </head>
 <body>
+    <div class="container">
+        <div class="poster">
+            <img src="{{movies_details.Poster_Link}}" alt="">
+        </div>
+        <div class="description">
+            <h3><span>Name of the Movie</span>{{movies_details.Series_Title}}</h3>
+            <span>IMDB Rating : {{ movies_details.IMDB_Rating }}</span>
+            <span>Released Year : {{ movies_details.Released_Year  }}</span>
+            <span>Genre : {{ movies_details.Genre }}</span>
+            <br><u><b>Description</b></u><br>
+            <span>{{movies_details.Overview }}</span>
+        </div>
+    </div>
+    <center><h3>The Recommendations</h3></center>
     <table>
         <thead>
             <tr>

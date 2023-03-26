@@ -58,6 +58,8 @@ def recommendation(name):
     print(name)
     try:
             movie_index = movies_ds[movies_ds['Series_Title']==name].index[0]
+            print(movies_ds.iloc[movie_index])
+
             distances = similarity[movie_index]
             movies_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x:x[1])[1:6]
             listOfMovies = []
@@ -65,10 +67,10 @@ def recommendation(name):
             for i in movies_list:
                 # print(movies_ds.iloc[i[0]].Series_Title)
                 listOfMovies.append(movies_ds.iloc[i[0]])
-                print(movies_ds.iloc[i[0]])
-                print("---------------------------------")
-            print(listOfMovies)
-            return render_template("./movie.html", listOfMovies=listOfMovies,movie_name = name)
+                # print(movies_ds.iloc[i[0]])
+                # print("---------------------------------")
+            # print(listOfMovies)
+            return render_template("./movie.html", listOfMovies=listOfMovies,movie_name = name,movies_details=movies_ds.iloc[movie_index])
             # return json.dumps(listOfMovies)
     except Exception as e: 
         print("an error occurred")  
